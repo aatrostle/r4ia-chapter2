@@ -1,8 +1,13 @@
 require 'bacon'
 
 describe Bacon do
-  it "is edible" do
-    Bacon.edible?.should be_true
+  subject { Bacon.new }
+
+  its(:edible?) { should be_true }
+
+  it "expired!" do
+    subject.expired!
+    subject.should_not be_edible
   end
 
 end
